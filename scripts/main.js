@@ -66,7 +66,7 @@ function displayWeather(data) {
   displayStack.push(cloudLine);
 
   var forecastTitle = document.createElement('h2');
-  forecastTitle.innerText = "Five day forecast:"
+  forecastTitle.innerText = "Five day forecast:";
   displayStack.push(forecastTitle);
 
   displayStack.forEach(function (line) {
@@ -74,21 +74,19 @@ function displayWeather(data) {
   });
 }
 function displayForecast(data) {
-  if (data.cod !== 200) {
-    return;
-  } else {
 
-    var forecastDiv = document.getElementById('forecast-content');
 
-    data.list.forEach(function (day) {
-      var dayDiv = document.createElement('div');
-      dayDiv.setAttribute('class', 'col-xs-2 well');
-      var divWeather = document.createElement('p');
-      divWeather.innerHTML = day.weather[0].main + " <b>" + convertTemp(day.temp.day) + "</b>";
-      dayDiv.appendChild(divWeather);
-      forecastDiv.appendChild(dayDiv);
-    })
-  }
+  var forecastDiv = document.getElementById('forecast-content');
+
+  data.list.forEach(function (day) {
+    var dayDiv = document.createElement('div');
+    dayDiv.setAttribute('class', 'col-xs-2 well');
+    var divWeather = document.createElement('p');
+    divWeather.innerHTML = day.weather[0].main + " <b>" + convertTemp(day.temp.day) + "</b>";
+    dayDiv.appendChild(divWeather);
+    forecastDiv.appendChild(dayDiv);
+  })
+
 
 }
 
