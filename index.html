@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Yet Another Weather Widget</title>
+  <meta name="description" content="code test for Avid Life Media">
+  <meta name="viewport" content="width=device-width">
+
+  <link rel="stylesheet" href="styles/bootstrap.css"/>
+
+  <link rel="stylesheet" href="styles/main.css">
+
+</head>
+<body>
+
+
+<div class="container-fluid">
+  <div class="header">
+    <h3 class="text-muted">Yet Another Weather Widget</h3>
+  </div>
+  <hr/>
+  <form class="form-inline" id="cityForm">
+    <div class="form-group">
+      <label for="cityToSearch">Which city would you like me to search for? </label>
+      <input type="text" class="form-control" id="cityToSearch" placeholder="City name">
+    </div>
+    <button type="submit" class="btn btn-info">Get Weather</button>
+  </form>
+  <br/>
+
+  <div class="panel panel-default">
+    <div id="weather-content" class="row panel-body"></div>
+    <div id="forecast-content" class="row panel-body"></div>
+  </div>
+
+  <div class="footer">
+    <hr/>
+    <p>Made by Jon Barson</p>
+  </div>
+
+</div>
+
+<script src="scripts/main.js"></script>
+
+</body>
+</html>
