@@ -1,8 +1,14 @@
 var form = document.getElementById("cityForm");
 
+init();
+//sets initial city.
+function init(){
+  document.getElementById('cityToSearch').value = window.localStorage.getItem('yaww');
+}
 form.addEventListener("submit", function (event) {
-  event.preventDefault();
   var city = document.getElementById('cityToSearch').value;
+
+  window.localStorage.setItem('yaww',city);
   submitRequest("weatherScript", "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&callback=displayWeather");
   submitRequest("forecastScript", "http://api.openweathermap.org/data/2.5/forecast/daily?q=" + city + "&cnt=5&callback=displayForecast");
 });
