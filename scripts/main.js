@@ -9,6 +9,7 @@ form.addEventListener("submit", function (event) {
   event.preventDefault();
   var weatherContent = document.getElementById('weather-content');
   var forecastContent = document.getElementById('forecast-content');
+
   while (weatherContent.hasChildNodes()) {
     weatherContent.removeChild(weatherContent.lastChild);
   }
@@ -18,6 +19,7 @@ form.addEventListener("submit", function (event) {
   var city = document.getElementById('cityToSearch').value;
 
   window.localStorage.setItem('yaww', city);
+
   submitRequest("weatherScript", "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&callback=displayWeather");
   submitRequest("forecastScript", "http://api.openweathermap.org/data/2.5/forecast/daily?q=" + city + "&cnt=5&callback=displayForecast");
 });
@@ -37,6 +39,7 @@ function submitRequest(scriptName, url) {
   }
 }
 
+//noinspection JSUnusedGlobalSymbols
 function displayWeather(data) {
   if (data.cod !== 200) {
     alert('Can not find city');
@@ -77,7 +80,7 @@ function displayWeather(data) {
   displayStack.push(windLine);
 
   var cloudLine = document.createElement('p');
-  cloudLine.innerHTML = "the cloud cover is: " + data.clouds.all + "%, The humidity is: " + data.main.humidity + "% and the pressure is: " + data.main.pressure + "kPa";
+  cloudLine.innerHTML = "the cloud cover is: " + data.clouds.all + "%, The humidity is: " + data.main.humidity + "% and the pressure is: " + data.main.pressure + " hpa";
   displayStack.push(cloudLine);
 
   var forecastTitle = document.createElement('h2');
@@ -88,6 +91,7 @@ function displayWeather(data) {
     contentColumn.appendChild(line);
   });
 }
+//noinspection JSUnusedGlobalSymbols
 function displayForecast(data) {
 
 
